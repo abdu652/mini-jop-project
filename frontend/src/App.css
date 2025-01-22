@@ -7,20 +7,3 @@ body{
   font-family:Arial, Helvetica, sans-serif;
   background: #f4f4f4;
 }
-button{
-  cursor: pointer;
-  background: #209CEE;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  color: whitesmoke;
-  margin-top: 10px;
-}
-.container{
-  display: flex;
-  margin-left: 10px;
-  p{
-    width: 400px;
-    line-height: 28px;
-  }
-}

@@ -1,0 +1,52 @@
+.landing{
+   display:flex;
+   flex-direction:column;
+   padding-left:10px;
+}
+.navbar-landing{
+   display: flex;
+   align-items: center;
+   padding:1px 5px;
+   /* background: red; */
+   img{
+      display: inline-block;
+   }
+   h1{
+      margin-left: 10px;
+      color: #209CEE;
+   }
+}
+.landing-page{
+   display:flex;
+   flex-direction: column;
+   margin-top: 3rem;
+   h1{
+      span{
+         color: #209CEE;
+      }
+   }
+}
+
+.page-info{
+   display: flex;
+   flex-direction: column;
+   padding: 0.5rem;
+   /* background: green; */
+ p{
+   max-width: 400px;
+   line-height: 25px;
+ }
+}
+
+.page-info button{
+   margin-top: 10px;
+      width:fit-content;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 5px;
+      background: #209CEE;
+      color: whitesmoke;
+
+   
+}
+
