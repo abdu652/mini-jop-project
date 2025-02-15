@@ -1,0 +1,27 @@
+.error-container{
+    display: flex;
+    flex-direction: column;
+    border: 1pxz solid red;
+    margin:10px auto;
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 2rem;
+        margin: auto;
+    }
+    a{
+        text-decoration: none;
+        width:fit-content;
+        color: white;
+        background: rgb(72,158,190);
+        border: 1px solid rgb(72, 158, 192);
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+
+    img{
+        margin: auto;
+        width: 50%;
+    }
+}
