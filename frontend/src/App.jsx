@@ -1,11 +1,17 @@
 import { useState } from 'react'
+import {BrowserRouter,Routes,Route} from "react-router-dom"
 import './App.css'
-import Landing from './pages/Landing/Landing.jsx'
+import {Register,Landing, Dashboard, Error} from "./pages/index.jsx"
 function App() {
   return (
-    <>
-      <Landing/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Landing/>} />
+        <Route path='/register' element={<Register/>} />
+        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='*' element={<Error/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

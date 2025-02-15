@@ -1,21 +1,39 @@
 .landing{
    display:flex;
-   flex-direction:column;
-   padding-left:10px;
+   padding:10px;
+   /* border: 1px solid green; */
+   justify-content: space-between;
+   /* align-items: center; */
+   min-height: 90vh;
+}
+.main-container{
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+   margin-right: 10px;
+   /* border: 1px solid gray; */
+}
+.job-img{
+   /* border: 1px solid red; */
+   display: flex;
+   align-items: flex-end;
+   flex: 1;
+   img{
+      width: 100%;
+   }
 }
 .navbar-landing{
    display: flex;
    align-items: center;
    padding:1px 5px;
    /* background: red; */
-   img{
-      display: inline-block;
-   }
    h1{
       margin-left: 10px;
       color: #209CEE;
    }
 }
+
+
 .landing-page{
    display:flex;
    flex-direction: column;
