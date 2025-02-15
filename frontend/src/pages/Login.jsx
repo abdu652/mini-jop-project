@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom'
 import Logo from '../../favicon.ico'
 import '../styles/Register.css'
+import Input from './Input';
 const formParam = [
   { id: 'email', type: 'email' },
   { id: 'password', type: 'password' }
@@ -37,17 +38,14 @@ function Login() {
         </div>
         <div className="form-input-container">
           {formParam.map((param) => (
-            <div className="form-input" key={param.id}>
-              <label htmlFor={param.id}>
-                {param.id.charAt(0).toUpperCase() + param.id.slice(1)}
-              </label>
-              <input
+              <Input
+                key={param.id}
+                label={param.id.charAt(0).toUpperCase() + param.id.slice(1)}
                 id={param.id}
                 type={param.type}
                 value={value[param.id]}
-                onChange={handleChange}
-              />
-            </div>
+                handleChange={handleChange}
+              />            
           ))}
 
         </div>
