@@ -100,4 +100,19 @@ body {
   
   .form-footer button:hover {
     background: rgb(3, 90, 100);
+    
+  }
+  .form-footer .btn:hover {
+    background: transparent;
+    
+  }
+
+  .reg-btn h2{
+      display: inline-block;
+    
+  }
+  .reg-btn .btn{
+    width: fit-content;
+    background: transparent;
+    color:rgb(17, 199, 219) ;
   }

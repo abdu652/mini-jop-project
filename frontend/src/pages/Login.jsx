@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom'
-import Logo from '../../favicon.ico'
 import '../styles/Register.css'
-import Input from './Input';
+import {Input ,Logo} from './index.jsx'
 const formParam = [
   { id: 'email', type: 'email' },
   { id: 'password', type: 'password' }

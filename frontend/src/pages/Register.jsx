@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../favicon.ico';
-import '../styles/Register.css';
-import Input from './Input.jsx';
-
-const formParam = [
-  { id: 'name', type: 'text' },
-  { id: 'email', type: 'email' },
-  { id: 'password', type: 'password' }
-];
+import '../styles/Register.css'
+import {Input, Logo} from './index.jsx'
 
 const initialState = {
   name: '',
@@ -18,7 +11,15 @@ const initialState = {
 
 function Register() {
   const [value, setValue] = useState(initialState);
-
+  const [isMember, setIsMember] = useState(false);
+  const formParam = isMember ?[
+    { id: 'email', type: 'email' },
+    { id: 'password', type: 'password' }
+  ]: [
+    {id:'name',type:'text'},
+    { id: 'email', type: 'email' },
+    { id: 'password', type: 'password' }
+  ]
   const handleChange = (e) => {
     setValue({ ...value, [e.target.id]: e.target.value });
   };
@@ -27,7 +28,9 @@ function Register() {
     e.preventDefault();
     console.log('Submitted:', value);
   };
-
+  const toggleMember = ()=>{
+    setIsMember(!isMember);
+  }
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-container">
@@ -36,7 +39,7 @@ function Register() {
             <img src={Logo} alt="logo" />
             <span>Jobify</span>
           </div>
-          <h2>Register</h2>
+          <h2>{isMember? "Login":"Register"}</h2>
         </div>
         <div className="form-input-container">
           {formParam.map((param) => (
@@ -52,9 +55,12 @@ function Register() {
         </div>
         <div className="form-footer">
           <button type="submit">Submit</button>
+          <div className="reg-btn">
           <h2>
-            Already A Member? <Link to="/login">Login</Link>
+            {isMember ? "Not A Member Yet?":"Already A Member?" }
           </h2>
+          <button className='btn' onClick={toggleMember}>{isMember ? "Register":"Login"}</button>
+          </div>
         </div>
       </div>
     </form>
