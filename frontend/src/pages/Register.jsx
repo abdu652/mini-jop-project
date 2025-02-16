@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Register.css'
-import {Input, Logo} from './index.jsx'
+import {Alert, Input, Logo} from './index.jsx'
 
 const initialState = {
   name: '',
@@ -41,6 +41,7 @@ function Register() {
           </div>
           <h2>{isMember? "Login":"Register"}</h2>
         </div>
+        <Alert/>
         <div className="form-input-container">
           {formParam.map((param) => (
             <Input

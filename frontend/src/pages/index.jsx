@@ -6,5 +6,6 @@ import Login from "./Login.jsx";
 import Input from "./Input.jsx";
 import Logo from '../../favicon.ico';
 import NotFound from "../assets/images/not-found.svg"
+import Alert from "../components/Alert.jsx";
 
-export {Login, Register, Error, Landing, Dashboard, Input,Logo, NotFound}
+export {Register, Error, Landing, Dashboard, Input,Logo, NotFound,Alert}
