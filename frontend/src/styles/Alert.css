@@ -1,0 +1,16 @@
+.alert{
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid darkgray;
+    color: rgb(170, 72, 72);
+}
+.alert-danger{
+    color: tomato;
+    border: 1px solid darkgray;
+    width: 80%;
+    font-family: sans-serif;
+    font-style: italic;
+}

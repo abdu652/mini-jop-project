@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Register.css'
-import {Alert, Input, Logo} from './index.jsx'
+import {Alert, Input, Logo,useAppContext} from './index.jsx'
 
 const initialState = {
   name: '',
@@ -12,6 +12,7 @@ const initialState = {
 function Register() {
   const [value, setValue] = useState(initialState);
   const [isMember, setIsMember] = useState(false);
+  const {showAlert,displayAlert} = useAppContext();
   const formParam = isMember ?[
     { id: 'email', type: 'email' },
     { id: 'password', type: 'password' }
@@ -26,8 +27,13 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Submitted:', value);
+    const {email,password,name} = value;
+    if(!email || !password || (!isMember && !name)){
+      displayAlert('Please fill all the fields','danger','SHOW_ALERT');
+      return;
   };
+  console.log('submitting form');
+  }
   const toggleMember = ()=>{
     setIsMember(!isMember);
   }
@@ -41,7 +47,9 @@ function Register() {
           </div>
           <h2>{isMember? "Login":"Register"}</h2>
         </div>
-        <Alert/>
+        <div className="alert-container">
+          {showAlert && <Alert />}
+        </div>
         <div className="form-input-container">
           {formParam.map((param) => (
             <Input
