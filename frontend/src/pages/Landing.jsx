@@ -2,6 +2,7 @@ import React from 'react'
 import  '../styles/Landing.css'
 import Logo from '../../favicon.ico'
 import JobImage from '../assets/images/job-img.svg'
+import { Link } from 'react-router-dom'
 const Landing = () => {
   return (
    <div className='landing'>
@@ -18,7 +19,7 @@ const Landing = () => {
                   pitchfork +1 master cleanse 90's letterpress health 
                   goth sustainable. JOMO mukbang cronut, 90's lumbersexual 
                </p>
-               <button>Login/Register</button>
+               <Link to='/register' >Signin</Link>
             </div>
          </div>
       </div>

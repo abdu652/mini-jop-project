@@ -10,7 +10,7 @@ const initialState = {
 };
 
 function Register() {
-  const [value, setValue] = useState(initialState);
+  const [values, setValues] = useState(initialState);
   const [isMember, setIsMember] = useState(false);
   const {showAlert,displayAlert} = useAppContext();
   const formParam = isMember ?[
@@ -22,12 +22,12 @@ function Register() {
     { id: 'password', type: 'password' }
   ]
   const handleChange = (e) => {
-    setValue({ ...value, [e.target.id]: e.target.value });
+    setValues({ ...values, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const {email,password,name} = value;
+    const {email,password,name} = values;
     if(!email || !password || (!isMember && !name)){
       displayAlert('Please fill all the fields','danger','SHOW_ALERT');
       return;
@@ -57,7 +57,7 @@ function Register() {
               label={param.id.charAt(0).toUpperCase() + param.id.slice(1)} // Corrected prop name
               id={param.id}
               type={param.type}
-              value={value[param.id]}
+              value={values[param.id]}
               handleChange={handleChange} // Corrected prop name
             />
           ))}
@@ -68,7 +68,7 @@ function Register() {
           <h2>
             {isMember ? "Not A Member Yet?":"Already A Member?" }
           </h2>
-          <button className='btn' onClick={toggleMember}>{isMember ? "Register":"Login"}</button>
+          <button  type='button' className='btn' onClick={toggleMember}>{isMember ? "Register":"Login"}</button>
           </div>
         </div>
       </div>
