@@ -68,3 +68,13 @@
    
 }
 
+.page-info a{
+   text-decoration: none;
+   background: #209CEE;
+   border: 1px solid #209CEE;
+   width: fit-content;
+   align-items: center;
+   padding: 2px 20px;
+   border-radius: 5px;
+   color: white;
+}
