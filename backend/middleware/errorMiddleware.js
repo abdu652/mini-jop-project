@@ -6,7 +6,7 @@ const errorMiddleware = (err, req, res, next) => {
     let errorMessage = 'Internal Server Error';
 
     // Handle validation errors (e.g., Mongoose, Joi)
-    if (err.errors && typeof err.errors === 'object') {
+    if (err.errors && err.name === 'ValidationError') {
         errorMessage = Object.values(err.errors)
             .map(item => item.message)
             .join(', ');
@@ -17,7 +17,7 @@ const errorMiddleware = (err, req, res, next) => {
 
     const errorResponse = {
         message: errorMessage,
-        error: process.env.NODE_ENV === 'development' ? err : {},
+        error: process.env.NODE_ENV === 'development' ? err.message : {},
     };
 
     res.status(statusCode).json(errorResponse);
