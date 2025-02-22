@@ -1,26 +1,26 @@
 import { StatusCodes } from 'http-status-codes';
 
 const errorMiddleware = (err, req, res, next) => {
-    const statusCode = err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
+    let statusCode = err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
+    let errorMessage = err.message || 'Internal Server Error';
 
-    let errorMessage = 'Internal Server Error';
-
-    // Handle validation errors (e.g., Mongoose, Joi)
     if (err.errors && err.name === 'ValidationError') {
         errorMessage = Object.values(err.errors)
             .map(item => item.message)
             .join(', ');
-    } else if (err.message) {
-        // Use the error message if it exists
-        errorMessage = err.message;
+    } 
+
+    if (err.code && err.code === 11000) {
+        errorMessage = `${Object.keys(err.keyValue).join(', ')} already exists`;   
+        statusCode = StatusCodes.BAD_REQUEST;
+        console.log(errorMessage)
     }
+    console.error('Full Error Object:', err);
 
-    const errorResponse = {
+    res.status(statusCode).json({
         message: errorMessage,
-        error: process.env.NODE_ENV === 'development' ? err.message : {},
-    };
-
-    res.status(statusCode).json(errorResponse);
+        error: process.env.NODE_ENV === 'development' ? err : undefined
+    });
 };
 
 export default errorMiddleware;
