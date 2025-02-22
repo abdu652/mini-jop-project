@@ -1,5 +1,9 @@
 import User from "../models/user.model.js"
 const register = async (req, res,next) => {
+    const {name,email,password} = req.body;
+    if(!name || !email || !password){
+        throw new Error("Provide all values");
+    }
         const user = await User.create(req.body);
         res.status(201).json(user);
 };
