@@ -19,7 +19,7 @@ const Landing = () => {
                   pitchfork +1 master cleanse 90's letterpress health 
                   goth sustainable. JOMO mukbang cronut, 90's lumbersexual 
                </p>
-               <Link to='/register' >Signin</Link>
+               <Link to='/register' >Signup</Link>
             </div>
          </div>
       </div>
