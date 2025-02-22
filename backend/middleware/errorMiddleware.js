@@ -8,18 +8,16 @@ const errorMiddleware = (err, req, res, next) => {
         errorMessage = Object.values(err.errors)
             .map(item => item.message)
             .join(', ');
+        statusCode = StatusCodes.BAD_REQUEST;    
     } 
 
     if (err.code && err.code === 11000) {
         errorMessage = `${Object.keys(err.keyValue).join(', ')} already exists`;   
         statusCode = StatusCodes.BAD_REQUEST;
-        console.log(errorMessage)
     }
-    console.error('Full Error Object:', err);
-
     res.status(statusCode).json({
         message: errorMessage,
-        error: process.env.NODE_ENV === 'development' ? err : undefined
+        statusCode,     
     });
 };
 
